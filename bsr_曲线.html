@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas获取画布对象</title>
+	<style>
+		canvas{border:1px solid #ddd;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			// 1)获取canvas节点
+			var canvas = document.querySelector('canvas');
+			canvas.width = canvas.height = 600;
+
+			// 2)获取画布对象（上下文）
+			var ctx = canvas.getContext('2d');//3d:webgl
+			console.log(ctx);
+
+		
+		})
+	</script>
+</head>
+<body>
+	<canvas>你的浏览器不支持canvas标签，请升级你的浏览你</canvas>
+</body>
+</html>

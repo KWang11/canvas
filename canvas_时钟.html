@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03_删除画布上的内容</title>
+	<style>
+		canvas{border:1px solid #ddd;}
+	</style>
+	<script>
+	      /*
+	         canvas时钟
+	             1）画表盘
+	             2）刻度
+	             3） 时针，分针，秒针
+	             4）其他信息
+	             5）时钟走动效果
+	       */
+		document.addEventListener('DOMContentLoaded',function(){
+			//1,布置画布
+			var canvas = document.querySelector('canvas');
+			canvas.width = 600;
+			canvas.height = 600;
+             //2，
+			var ctx = canvas.getContext('2d');
+			console.log(ctx);
+            // 中心
+            var center={x:canvas.width/2,y:canvas.height/2};
+            
+            //把画布原点移到中点位置
+            ctx.translate(center.x,center.y);
+            ctx.save();  /*保存中心坐标*/
+            //时钟走动
+            
+            function show(){
+            ctx.restore();
+            
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+			//1）画表盘
+			ctx.beginPath();
+			ctx.arc(0,0,120,0,2*Math.PI);
+            ctx.lineWidth=3;
+            ctx.stroke();
+
+             //画内表盘
+             ctx.beginPath();
+             ctx.arc(0,0,114,0,2*Math.PI);
+             ctx.lineWidth=1;
+             ctx.stroke();
+             
+            
+             //2)刻度
+             //把画布原点移动到12点刻度位置
+//           ctx.beginPath();
+//           
+//           ctx.moveTo(0,-114);
+//           ctx.lineTo(0,-106);
+//           
+//           ctx.rotate(Math.PI/2);     //rotate旋转的是坐标轴
+//           ctx.moveTo(center.x,center.y);
+//           ctx.moveTo(0,-114);
+//           ctx.lineTo(0,-106);
+//           
+//           ctx.rotate(Math.PI/2);     //rotate旋转的是坐标轴
+//           ctx.moveTo(center.x,center.y);
+//           ctx.moveTo(0,-114);
+//           ctx.lineTo(0,-106);
+//           
+//           ctx.rotate(Math.PI/2);     //rotate旋转的是坐标轴
+//           ctx.moveTo(center.x,center.y);
+//           ctx.moveTo(0,-114);
+//           ctx.lineTo(0,-106);
+//           
+//           ctx.lineWidth=6;
+//           ctx.stroke();     
+           
+             //
+          
+             ctx.restore(); /*将坐标重新回到原点*/
+             
+             
+              //3,6,9,12点钟刻度刻度
+             ctx.save(); 
+             ctx.beginPath();
+             ctx.lineWidth=5;
+             for(var i=0;i<4;i++){
+//            	   if(i==0||i==3||i==6||i==9) continue;
+              	   ctx.rotate(90*Math.PI/180);  /*cannas里面旋转角度用的是弧度*/
+              	   ctx.moveTo(0,-114);
+              	   ctx.lineTo(0,-104)             	  
+              }
+              ctx.stroke();
+             //画1,2,4,5,7,8,10,11时钟刻度
+             //时钟刻度
+             ctx.save();
+             ctx.beginPath();
+             ctx.lineWidth=3;
+             for(var i=0;i<12;i++){
+//            	   if(i==0||i==3||i==6||i==9) continue;
+              	   ctx.rotate(30*Math.PI/180);  /*cannas里面旋转角度用的是弧度*/
+              	   ctx.moveTo(0,-114);
+              	   ctx.lineTo(0,-108)             	  
+              }
+              ctx.stroke();
+//            
+//             //分钟刻度
+             ctx.save();
+             ctx.beginPath();
+             ctx.lineWidth=1;      
+              for(var i=0;i<60;i++){
+//            	   if(i==0||i==3||i==6||i==9) continue;
+              	   ctx.rotate(6*Math.PI/180);  /*cannas里面旋转角度用的是弧度*/
+              	   ctx.moveTo(0,-114);
+              	   ctx.lineTo(0,-108)             	  
+              }
+              ctx.stroke();
+            ctx.restore();//回到初始状态   ，坐标在中心        
+               //  
+              //画时针、分针、秒针
+              var date=new Date();
+              var hour = date.getHours();
+              var min=date.getMinutes();
+              var sec=date.getSeconds();
+              var day=date.getDay();
+              var today=date.getDate();
+//            
+               ctx.save();   //保存坐标
+              //旋转
+             
+             /*时针*/
+              ctx.beginPath();
+              ctx.rotate((hour+min/60+sec/3600)*360/12*Math.PI/180);
+              ctx.moveTo(0,0);
+              ctx.lineTo(0,-60);
+              ctx.lineWidth =5;
+              ctx.stroke();
+              ctx.restore()
+//            /*分针*/
+              ctx.save();
+              ctx.beginPath();
+              ctx.rotate((min+sec/60)*360/60*Math.PI/180);
+              ctx.moveTo(0,0);
+              ctx.lineTo(0,-75);
+              ctx.lineWidth =3;
+              ctx.stroke();
+              ctx.restore();
+//            /*秒针*/
+              ctx.save();
+              ctx.beginPath();
+              ctx.rotate(sec*6/180*Math.PI);
+              ctx.moveTo(0,0);
+              ctx.lineTo(0,-90);
+              ctx.lineWidth =1;
+              ctx.stroke();
+              ctx.restore();
+              
+              ctx.restore();
+          }  
+          
+          var timer=setInterval(function(){
+          	        show();
+          	        //使用定时器之后，每一秒后都要将之前的画在画板上的删掉
+          },1000)
+              
+		})
+	</script>
+</head>
+<body>
+	<canvas>你的浏览器不支持canvas标签，请升级你的浏览你</canvas>
+</body>
+</html>

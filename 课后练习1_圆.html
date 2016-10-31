@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 canvas{border: 1px solid #ddd;}
+		</style>
+		<script>
+			  document.addEventListener('DOMContentLoaded',function(){
+			  	
+			  	
+				  	var canvas = document.querySelector('canvas');
+				  	canvas.width=canvas.height=600;
+					var ctx = canvas.getContext('2d');
+					// 开始一条新路径
+					ctx.beginPath();
+					// 位移到圆心，方便绘制
+					ctx.translate(200, 200);
+					// 移动到圆心
+					ctx.moveTo(0, 0);
+					// 绘制圆弧
+					ctx.arc(0, 0, 80, 0,600/3260*Math.PI*2);
+					// 闭合路径
+					ctx.closePath();
+					ctx.fillStyle="#0000FF";
+					ctx.fill();
+					
+					ctx.beginPath();
+					// 位移到圆心，方便绘制
+//					ctx.translate(200, 200);
+					// 移动到圆心
+					ctx.moveTo(0, 0);
+					// 绘制圆弧
+					ctx.arc(0, 0, 80, 600/3260*Math.PI*2,1600/3260*Math.PI*2);
+					// 闭合路径
+					ctx.closePath();
+						ctx.fillStyle="yellow";
+					ctx.fill();
+			  	
+			  	
+			  	    ctx.beginPath();
+					// 位移到圆心，方便绘制
+//					ctx.translate(200, 200);
+					// 移动到圆心
+					ctx.moveTo(0, 0);
+					// 绘制圆弧
+					ctx.arc(0, 0, 80, 1600/3260*Math.PI*2,2800/3260*Math.PI*2);
+					// 闭合路径
+					ctx.closePath();
+						ctx.fillStyle="red";
+					ctx.fill();
+			  	
+			  	     ctx.beginPath();
+					// 位移到圆心，方便绘制
+//					ctx.translate(200, 200);
+					// 移动到圆心
+					ctx.moveTo(0, 0);
+					// 绘制圆弧
+					ctx.arc(0, 0, 80, 2800/3260*Math.PI*2,3000/3260*Math.PI*2);
+					// 闭合路径
+					ctx.closePath();
+						ctx.fillStyle="#FF6600";
+					ctx.fill();
+					
+					 ctx.beginPath();
+					// 位移到圆心，方便绘制
+//					ctx.translate(200, 200);
+					// 移动到圆心
+					ctx.moveTo(0, 0);
+					// 绘制圆弧
+					ctx.arc(0, 0, 80, 3000/3260*Math.PI*2,3260/3260*Math.PI*2);
+					// 闭合路径
+					ctx.closePath();
+						ctx.fillStyle="#0f0";
+					ctx.fill();
+					
+					
+					ctx.beginPath();
+					ctx.moveTo(40,40);
+					ctx.lineTo(80,80);
+					ctx.lineTo(130,80);
+					/*字体*/
+					ctx.font='12px 微软雅黑';
+					ctx.textBaseline='top';
+					ctx.strokeStyle='red';
+					ctx.strokeText('600',110,60);
+					//描边
+					ctx.stroke();
+					
+					/*字体*/
+					ctx.beginPath();
+					ctx.moveTo(-30,40);
+					ctx.lineTo(20,120);
+					ctx.lineTo(70,120);
+					/*字体*/
+					ctx.font='12px 微软雅黑';
+					ctx.textBaseline='top';
+					ctx.strokeText('1000',50,100);					
+					//描边
+					ctx.stroke();
+					
+					/*字体*/
+					ctx.beginPath();
+					ctx.moveTo(-30,40);
+					ctx.lineTo(20,120);
+					ctx.lineTo(70,120);
+					/*字体*/
+					ctx.font='12px 微软雅黑';
+					ctx.textBaseline='top';
+					ctx.strokeText('1000',50,100);					
+					//描边
+					ctx.stroke();
+					
+				
+					
+					
+					
+			  	     //1,布置画板
+//			  	     var canvas=document.querySelector('canvas');
+//			  	      canvas.width=canvas.height=600;
+//			  	     //2,获取canvas上下文
+//			  	     var ctx=canvas.getContext('2d');
+//			  	     //3,绘制路径
+//			  	     console.log("acc");
+//			  	     ctx.arc(canvas.width/2,canvas.height/2,80,0,600/3260*2*Math.PI,false);
+//			  	     ctx.moveTo(300,300);
+////			  	     ctx.lineTo(380,300);
+//			  	     ctx.closePath();
+//			  	     //4，设置线宽样式
+//			  	     ctx.fillStyle="red"	
+//			  	     ctx.strokeStyle="yellow"
+//			  	     ctx.lineWidth=10;
+//			  	     //5,描边
+//			  	     ctx.stroke();
+//			  	     	  	     
+//			  	     console.log(ctx);
+			  })
+		</script>
+	</head>
+	<body>
+		<canvas>你的浏览器不支持cannas，请升级你的浏览器</canvas>
+	</body>
+</html>

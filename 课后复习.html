@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		      //字体
+		      strokeText(text,x,y)
+		      fillText();
+			  //圆弧
+			  arc(x,y,r,sAngle,eAngle,b);
+			  //图片
+			  drawImage(img,x,y);
+			  drawImage(img,x,y,width,height);
+			  /*等比例公式：height=width*imgHidth/imgWidth/
+			   
+			   */
+			  drawImage(img,trimX,trimY,trimWidth,trimHeight,x,y,width,height);
+			  
+			  
+			  /*渐变*/          /**/
+			 var lg=ctx.createLinearGradient(sx,sy,ex,ey);
+			 lg.addColorStop(pos,color);
+			 lg.addColorStop(pos,color);
+			 
+			 //
+			 var rg=ctx.createRadialGradient(sx,sy,sr,ex,ey,er);
+			 ctx.fillStyle-pat; //把背景图填充
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
